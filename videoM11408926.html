@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界紅茶大賞 - 全球產區與台灣特色</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tea: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0c1b3',
+                            400: '#d9a38c',
+                            500: '#c47d5e',
+                            600: '#9b5a41',
+                            700: '#7e4632',
+                            800: '#643829',
+                            900: '#4a2b21',
+                            950: '#2a1610',
+                        },
+                        gold: '#d4af37',
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        display: ['"Outfit"', 'sans-serif'],
+                        accent: ['"Playfair Display"', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0c0806;
+            color: #eaddd7;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(26, 16, 12, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(196, 125, 94, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #d9a38c 0%, #c47d5e 50%, #7e4632 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c47d5e, transparent);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .bento-item {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(196, 125, 94, 0.5);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0806;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #643829;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c47d5e;
+        }
+    </style>
+</head>
+<body class="font-serif">
+
+    <!-- Hero Section / Title -->
+    <header class="relative min-h-[50vh] flex flex-col items-center justify-center text-center p-8 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-30">
+            <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-tea-700/40 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-tea-900/40 rounded-full blur-[120px]"></div>
+        </div>
+        
+        <div class="z-10 animate-float">
+            <span class="font-display uppercase tracking-[0.5em] text-tea-400 text-sm mb-4 block">A Journey Through Aroma</span>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 gradient-text tracking-tighter">世界紅茶大賞</h1>
+            <p class="max-w-2xl text-lg md:text-xl text-tea-200/80 leading-relaxed mx-auto font-light">
+                從喜馬拉雅山麓到福爾摩沙寶島，探索每一片茶葉背後的風土、分級與匠心工藝。
+            </p>
+        </div>
+    </header>
+
+    <!-- 1. 置頂：資訊圖表 -->
+    <section class="max-w-7xl mx-auto px-6 mb-24">
+        <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-tea-600 to-tea-900 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+            <div class="relative glass-card rounded-2xl overflow-hidden p-2">
+                <img src="https://opal.google/board/blobs/14cd3b1e-2389-460d-bc33-d44585353961" alt="紅茶資訊圖表" class="w-full h-auto rounded-xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 置中：短影片與音樂 -->
+    <section class="max-w-5xl mx-auto px-6 mb-32 space-y-12">
+        <div class="text-center">
+            <h2 class="font-display text-3xl font-bold text-tea-300 mb-2 uppercase tracking-widest italic">The Sensory Journey</h2>
+            <div class="w-20 h-1 bg-tea-600 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-8 items-center">
+            <!-- Video Container -->
+            <div class="md:col-span-3 relative aspect-[16/9] glass-card rounded-3xl overflow-hidden group">
+                <video src="https://opal.google/board/blobs/cf0fce50-0878-49c3-86e5-1f3df6207431" class="w-full h-full object-cover" loop muted playsinline autoplay></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                    <p class="text-white text-sm italic font-light">琥珀色茶湯的完整旅程：從茶園到揉捻</p>
+                </div>
+            </div>
+
+            <!-- Audio & Description -->
+            <div class="md:col-span-2 space-y-6">
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-l-tea-500">
+                    <h3 class="text-2xl font-bold mb-4 text-tea-100">茶韻背景音</h3>
+                    <p class="text-tea-300 leading-relaxed mb-6 text-sm">
+                        聽見茶園的風與水，感受心靈的沉靜。這段旋律為您的閱讀旅程提供了完美的感官背景。
+                    </p>
+                    <div class="bg-tea-950/50 p-4 rounded-xl">
+                        <audio controls src="https://opal.google/board/blobs/32954e62-6a35-472e-b73f-14ee3e77c46b" class="w-full"></audio>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-tea-400 italic text-sm px-4">
+                    <div class="w-2 h-2 bg-tea-500 rounded-full animate-pulse-slow"></div>
+                    <span>影片展示：高山茶園、加工揉捻、琥珀茶湯</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 置底：報告內容 -->
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        
+        <!-- Summary Bento Grid -->
+        <div class="mb-24">
+            <h2 class="text-4xl font-black mb-12 flex items-center gap-4">
+                <span class="text-tea-500 font-display">01.</span> 核心摘要
+            </h2>
+            <div class="bento-grid">
+                <div class="bento-item glass-card col-span-12 md:col-span-6 p-8 rounded-3xl">
+                    <div class="text-tea-500 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-tea-100">全球產區</h3>
+                    <p class="text-tea-300 text-sm leading-relaxed">世界紅茶主要產區集中於印度、斯里蘭卡與中國，孕育出大吉嶺、烏巴、祁門等具備獨特風土香氣的知名茶款。</p>
+                </div>
+                <div class="bento-item glass-card col-span-12 md:col-span-3 p-8 rounded-3xl">
+                    <div class="text-tea-500 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-tea-100">分級制度</h3>
+                    <p class="text-tea-300 text-sm leading-relaxed">依「外觀」與「大小」區分（如 OP、BOP），而非絕對品質；另有 CTC 專注快速萃取。</p>
+                </div>
+                <div class="bento-item glass-card col-span-12 md:col-span-3 p-8 rounded-3xl">
+                    <div class="text-tea-500 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-tea-100">加工工藝</h3>
+                    <p class="text-tea-300 text-sm leading-relaxed">核心在於全發酵，經過萎凋、揉捻、發酵與乾燥四大步驟。</p>
+                </div>
+                <div class="bento-item glass-card col-span-12 p-8 rounded-3xl bg-gradient-to-br from-tea-900/40 to-tea-800/20">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-tea-100">台灣特色</h3>
+                            <p class="text-tea-300 text-sm max-w-xl">結合獨特育種與生態環境，發展出紅玉（台灣香）、紅韻、蜜香紅茶及台灣山茶等具高度國際辨識度的頂級茶款。</p>
+                        </div>
+                        <div class="px-6 py-2 border-2 border-tea-500 rounded-full font-display text-tea-500 text-xs font-bold tracking-widest uppercase">Signature Taiwan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Global Regions -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-black mb-12 flex items-center gap-4">
+                <span class="text-tea-500 font-display">02.</span> 全球主要產區
+            </h2>
+            <div class="space-y-8">
+                <!-- India -->
+                <div class="glass-card p-10 rounded-3xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-4xl">🇮🇳</span>
+                        <h3 class="text-3xl font-bold text-tea-100">印度 <span class="text-tea-500 font-light text-xl">India</span></h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-bold text-gold">大吉嶺紅茶 (Darjeeling)</h4>
+                            <p class="text-tea-300 leading-relaxed text-sm">「茶中香檳」。產於喜馬拉雅山南麓，具細緻花果香。春摘帶細緻花香，夏摘具濃郁果韻。</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-bold text-gold">阿薩姆紅茶 (Assam)</h4>
+                            <p class="text-tea-300 leading-relaxed text-sm">產自東北平原，茶湯暗紅具濃郁麥芽香。強烈收斂性，為製作奶茶首選。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sri Lanka -->
+                <div class="glass-card p-10 rounded-3xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-4xl">🇱🇰</span>
+                        <h3 class="text-3xl font-bold text-tea-100">斯里蘭卡 <span class="text-tea-500 font-light text-xl">Ceylon</span></h3>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-tea-950/40 p-6 rounded-2xl border border-tea-800/30">
+                            <h4 class="font-bold text-tea-200 mb-2">烏巴 (Uva)</h4>
+                            <p class="text-tea-400 text-sm">世界三大茗茶，帶薄荷與青蘋果香氣，澀味強勁。</p>
+                        </div>
+                        <div class="bg-tea-950/40 p-6 rounded-2xl border border-tea-800/30">
+                            <h4 class="font-bold text-tea-200 mb-2">努沃勒埃利耶</h4>
+                            <p class="text-tea-400 text-sm">高海拔產區，茶湯橘黃具青草與花果香，清爽微澀。</p>
+                        </div>
+                        <div class="bg-tea-950/40 p-6 rounded-2xl border border-tea-800/30">
+                            <h4 class="font-bold text-tea-200 mb-2">汀普拉 & 盧哈娜</h4>
+                            <p class="text-tea-400 text-sm">汀普拉具玫瑰花香；盧哈娜則有龍眼乾焦糖香。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- China -->
+                <div class="glass-card p-10 rounded-3xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-4xl">🇨🇳</span>
+                        <h3 class="text-3xl font-bold text-tea-100">中國 <span class="text-tea-500 font-light text-xl">China</span></h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="flex gap-4">
+                            <div class="text-tea-500 font-display text-2xl font-bold">01</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-tea-100 mb-2">祁門紅茶 (Keemun)</h4>
+                                <p class="text-tea-400 text-sm">以「祁門香」(蘭花、玫瑰、焦糖蘋果) 著稱，世界三大茗茶之一。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-tea-500 font-display text-2xl font-bold">02</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-tea-100 mb-2">正山小種 (Lapsang Souchong)</h4>
+                                <p class="text-tea-400 text-sm">世界最早紅茶，具松煙香與桂圓味。高階版為「金駿眉」。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Grading System -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-black mb-12 flex items-center gap-4">
+                <span class="text-tea-500 font-display">03.</span> 分級制度
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse glass-card rounded-2xl">
+                    <thead>
+                        <tr class="border-b border-tea-800">
+                            <th class="p-6 text-tea-500 font-display uppercase tracking-widest text-xs">等級</th>
+                            <th class="p-6 text-tea-500 font-display uppercase tracking-widest text-xs">全稱</th>
+                            <th class="p-6 text-tea-500 font-display uppercase tracking-widest text-xs">特徵說明</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-tea-200">
+                        <tr class="border-b border-tea-900/50 hover:bg-tea-900/20 transition">
+                            <td class="p-6 font-bold text-gold">OP</td>
+                            <td class="p-6 text-sm">Orange Pekoe</td>
+                            <td class="p-6 text-sm">完整條索狀，香氣豐富柔順。</td>
+                        </tr>
+                        <tr class="border-b border-tea-900/50 hover:bg-tea-900/20 transition">
+                            <td class="p-6 font-bold text-gold">BOP</td>
+                            <td class="p-6 text-sm">Broken Orange Pekoe</td>
+                            <td class="p-6 text-sm">碎葉，溶出快、茶湯濃，奶茶首選。</td>
+                        </tr>
+                        <tr class="border-b border-tea-900/50 hover:bg-tea-900/20 transition">
+                            <td class="p-6 font-bold text-gold">FOP/TGFOP</td>
+                            <td class="p-6 text-sm">Flowery Orange Pekoe</td>
+                            <td class="p-6 text-sm">含初展嫩芽，帶豐富金毫與花香。</td>
+                        </tr>
+                        <tr class="hover:bg-tea-900/20 transition">
+                            <td class="p-6 font-bold text-gold">CTC</td>
+                            <td class="p-6 text-sm">Crush, Tear, Curl</td>
+                            <td class="p-6 text-sm">特殊顆粒製法，極速萃取，濃厚風味。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 3: Process -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-black mb-12 flex items-center gap-4">
+                <span class="text-tea-500 font-display">04.</span> 加工工藝
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="relative p-8 glass-card rounded-3xl text-center group">
+                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition duration-500">🍃</div>
+                    <h4 class="font-bold text-tea-100 mb-2">萎凋</h4>
+                    <p class="text-tea-400 text-xs">散失水分，啟動芳香轉換</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] text-tea-700">→</div>
+                </div>
+                <div class="relative p-8 glass-card rounded-3xl text-center group">
+                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition duration-500">🌀</div>
+                    <h4 class="font-bold text-tea-100 mb-2">揉捻</h4>
+                    <p class="text-tea-400 text-xs">破壞細胞壁，使汁液氧化</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] text-tea-700">→</div>
+                </div>
+                <div class="relative p-8 glass-card rounded-3xl text-center group">
+                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition duration-500">🌡️</div>
+                    <h4 class="font-bold text-tea-100 mb-2">發酵</h4>
+                    <p class="text-tea-400 text-xs">產生茶黃素與茶紅素</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] text-tea-700">→</div>
+                </div>
+                <div class="p-8 glass-card rounded-3xl text-center group">
+                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition duration-500">🔥</div>
+                    <h4 class="font-bold text-tea-100 mb-2">乾燥</h4>
+                    <p class="text-tea-400 text-xs">停止發酵，固定風味</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Taiwan Specials -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-black mb-12 flex items-center gap-4">
+                <span class="text-tea-500 font-display">05.</span> 台灣特色紅茶
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-6">
+                    <div class="p-8 glass-card rounded-[2rem] border-r-4 border-r-tea-500">
+                        <span class="text-xs font-display text-tea-500 uppercase font-black mb-2 block">TTES No. 18</span>
+                        <h4 class="text-2xl font-black text-tea-100 mb-3">紅玉紅茶 (台灣香)</h4>
+                        <p class="text-tea-300 text-sm leading-relaxed">具天然薄荷與肉桂香，茶湯艷紅，被國際譽為「台灣香」。</p>
+                    </div>
+                    <div class="p-8 glass-card rounded-[2rem]">
+                        <h4 class="text-2xl font-black text-tea-100 mb-3">蜜香紅茶</h4>
+                        <p class="text-tea-300 text-sm leading-relaxed">小綠葉蟬吸食（著蜒）後產生的天然蜂蜜與熟果香，甘醇不澀。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="p-8 glass-card rounded-[2rem] bg-gradient-to-br from-tea-900/20 to-black">
+                        <h4 class="text-xl font-bold text-tea-100 mb-2">紅韻紅茶 (台茶21號)</h4>
+                        <p class="text-tea-400 text-sm">帶有柚花蜜香與柑橘熟果香，口感甘甜柔和。</p>
+                    </div>
+                    <div class="p-8 glass-card rounded-[2rem]">
+                        <h4 class="text-xl font-bold text-tea-100 mb-2">台灣山茶</h4>
+                        <p class="text-tea-400 text-sm">原生野生茶樹，林野芬芳與柔美花香，喉韻甜潤。</p>
+                    </div>
+                    <div class="p-8 glass-card rounded-[2rem]">
+                        <h4 class="text-xl font-bold text-tea-100 mb-2">阿薩姆 (台茶8號)</h4>
+                        <p class="text-tea-400 text-sm">魚池鄉馴化，具經典麥芽香，鮮奶茶絕佳基底。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="glass-card p-12 rounded-[3rem] text-center max-w-4xl mx-auto mb-24 border-tea-500/30">
+            <h2 class="text-3xl font-black text-tea-100 mb-8">結論</h2>
+            <p class="text-tea-200 leading-loose text-lg">
+                紅茶作為全球茶業的主流，其多樣化風味源於產區風土與精密工藝的結合。從傳統產區到分級制度的嚴格掌控，共同定義了紅茶的深厚底蘊。台灣紅茶則透過創新育種與「著蜒」工藝，成功開創出紅玉、蜜香紅茶等特有品種。正是這豐富的感官體驗，使紅茶跨越國界，持續成為精緻飲食文化的核心。
+            </p>
+        </section>
+
+        <!-- References -->
+        <section class="max-w-4xl mx-auto text-tea-500 text-sm space-y-2 opacity-60 hover:opacity-100 transition-opacity">
+            <h3 class="font-display font-bold uppercase tracking-tighter text-xs mb-4">References & Resources</h3>
+            <ul class="list-disc list-inside grid md:grid-cols-2 gap-x-8 gap-y-1">
+                <li>農業部茶及飲料作物改良場</li>
+                <li>國家文化記憶庫</li>
+                <li>七三茶堂專文</li>
+                <li>日本紅茶協會 (Japan Tea Association)</li>
+                <li>荼公子茶葉課程</li>
+                <li>滴滴香紅玉紅茶專題</li>
+                <li>茶貨店推薦文獻</li>
+                <li>山川製茶流程解析</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-tea-900 bg-black text-center space-y-4">
+        <div class="text-tea-400 text-lg">
+            【主題探索報告】by <span class="italic text-red-600 font-serif font-bold">Elle Hung</span>
+        </div>
+        <div class="font-display tracking-[0.3em] text-tea-700 text-xs font-bold">
+            學號：M11408926
+        </div>
+    </footer>
+
+    <script>
+        // Subtle scroll reveal animation for bento items
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
