@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Kitty 50週年大揭祕 - 現代風格專題</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#FF4D6D',
+                            lightPink: '#FFF0F3',
+                            accent: '#C9184A',
+                            dark: '#590D22',
+                            gold: '#FFB703'
+                        },
+                        glass: 'rgba(255, 255, 255, 0.7)'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #FFF0F3 0%, #FFB3C1 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #FF4D6D, #800F2F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+        }
+        ::selection {
+            background: #FF4D6D;
+            color: white;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF0F3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF758F;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark selection:bg-brand-pink selection:text-white">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-white/20 z-50">
+        <div id="progress-bar" class="h-full bg-brand-pink transition-all duration-150 w-0"></div>
+    </div>
+
+    <!-- Header / Banner Section -->
+    <header class="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-12 pb-24 px-6">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-brand-pink/20 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl animate-pulse-slow delay-700"></div>
+        </div>
+
+        <div class="container max-w-6xl mx-auto z-10 flex flex-col md:flex-row items-center gap-12">
+            <!-- Hero Image -->
+            <div class="w-full md:w-1/2 animate-fade-in opacity-0" style="animation-delay: 0.2s;">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-brand-pink to-brand-gold rounded-[2rem] blur-xl opacity-40 group-hover:opacity-60 transition duration-500"></div>
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl animate-float">
+                        <img src='https://opal.google/board/blobs/92da19bf-68ab-41a1-b40d-a4e8be79a0c7' alt='Hello Kitty Banner' class="w-full h-auto object-cover transform scale-105 group-hover:scale-110 transition duration-700" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Title & Info -->
+            <div class="w-full md:w-1/2 space-y-6 animate-fade-in opacity-0" style="animation-delay: 0.4s;">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/50 border border-brand-pink/30 text-brand-pink font-semibold text-sm uppercase tracking-widest">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-pink opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-pink"></span>
+                    </span>
+                    <span>Culture Analysis</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-display font-black leading-tight text-brand-dark">
+                    Hello Kitty 大揭祕：<br/>
+                    <span class="text-gradient">她居然不是貓？</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-dark/70 font-medium leading-relaxed italic">
+                    這隻「無嘴女孩」如何征服全球 50 年！深度解析流行文化中的「可愛經濟學」。
+                </p>
+                <div class="flex items-center space-x-4 pt-4">
+                    <div class="h-12 w-12 rounded-full bg-brand-pink flex items-center justify-center text-white font-bold text-sm">M11</div>
+                    <div>
+                        <p class="font-bold text-brand-dark">學號：M11408926</p>
+                        <p class="text-sm text-brand-dark/50">Published in Cultural Trends • Oct 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container max-w-4xl mx-auto px-6 pb-24 relative">
+        <!-- Introduction Glass Card -->
+        <section class="glass-card rounded-3xl p-8 md:p-12 -mt-20 mb-16 relative z-20 animate-fade-in opacity-0" style="animation-delay: 0.6s;">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-brand-pink flex items-center">
+                    <span class="bg-brand-pink text-white px-3 py-1 rounded-lg mr-4 text-base">01</span>
+                    前言：關於那個紅遍全球的「女孩」
+                </h2>
+                <div class="prose prose-lg max-w-none text-brand-dark/80 leading-relaxed space-y-4">
+                    <p>
+                        在當代大眾文化的圖像譜系中，很難找到一個符號能像她一樣——不需要言語，甚至不需要表情，卻能無孔不入地滲透進我們的生活。無論是妳童年書包上的掛飾，還是現在辦公桌角落那只療癒的公仔，那個左耳帶著紅色蝴蝶結的身影，早已成為一種跨越國界的「可愛語言」。
+                    </p>
+                    <p class="font-medium text-brand-dark">
+                        但讀者們，你們是否有靜下心來思考過：這個陪伴了我們半個世紀的經典形象，究竟隱含了什麼樣的符號魅力？更震撼的是，如果你一直把她當成一隻「貓」，那麼你可能誤會了她整整 50 年。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Style Section 2 -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16">
+            <div class="md:col-span-12 glass-card rounded-3xl p-8 hover-lift">
+                <h2 class="text-2xl font-black text-brand-pink flex items-center mb-6">
+                    <span class="bg-brand-pink text-white px-3 py-1 rounded-lg mr-4 text-base">02</span>
+                    她是誰？Hello Kitty 的身世背景大公開！
+                </h2>
+                <p class="text-lg leading-relaxed text-brand-dark mb-6">
+                    我們習慣稱呼她為「凱蒂貓」，但若翻開她的身份證，你會發現她的官方名稱是 <span class="px-2 py-1 bg-brand-gold/20 rounded font-bold">Kitty White</span>。根據三麗鷗（Sanrio）官方設定，她並不是貓，而是一位住在倫敦郊外、正就讀小學三年級的「小女孩」。
+                </p>
+            </div>
+
+            <div class="md:col-span-5 bg-white/60 backdrop-blur rounded-3xl p-8 border border-white hover-lift">
+                <div class="text-5xl mb-4">🍎</div>
+                <h3 class="text-xl font-bold text-brand-dark mb-3">蘋果計量法的幽默學</h3>
+                <p class="text-brand-dark/70 text-sm leading-relaxed">
+                    三麗鷗不使用公分或公斤，而是用「蘋果」來衡量：身高 5 個蘋果高，體重則是 3 個蘋果重。這種獨特的單位美學讓 Kitty 進入了一個充滿想像力的敘事空間。
+                </p>
+            </div>
+
+            <div class="md:col-span-7 bg-brand-pink/10 backdrop-blur rounded-3xl p-8 border border-brand-pink/20 hover-lift overflow-hidden relative">
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">「沒有嘴巴」的神祕符號</h3>
+                    <p class="text-brand-dark/70 text-sm leading-relaxed">
+                        這並非疏忽，而是高明的「空白美學」。Kitty 沒有嘴巴是為了讓觀察者投射自我情感。快樂時看著她微笑，憂傷時她與你共感。這種「用心溝通」而非「用口言說」的設計，最具療癒性。
+                    </p>
+                </div>
+                <div class="absolute -right-10 -bottom-10 text-9xl opacity-5 select-none pointer-events-none">😶</div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-display font-black text-brand-dark mb-10 text-center">那些年，我們追過的 Kitty</h2>
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-6 items-center group">
+                    <div class="flex-shrink-0 w-24 h-24 rounded-full bg-white border-4 border-brand-pink flex items-center justify-center font-display font-black text-2xl text-brand-pink group-hover:scale-110 transition duration-300 shadow-lg">1975</div>
+                    <div class="flex-grow glass-card rounded-2xl p-6 transition duration-300 group-hover:bg-white">
+                        <h4 class="text-lg font-bold text-brand-dark mb-2">初試啼聲：透明小錢包</h4>
+                        <p class="text-brand-dark/70">一切的起點是不到 100 日圓、印有 Kitty 坐在牛奶瓶中間的 Vinyl Coin Purse。那時她還只是平面圖案。</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row-reverse gap-6 items-center group">
+                    <div class="flex-shrink-0 w-24 h-24 rounded-full bg-white border-4 border-brand-gold flex items-center justify-center font-display font-black text-2xl text-brand-gold group-hover:scale-110 transition duration-300 shadow-lg">1980s</div>
+                    <div class="flex-grow glass-card rounded-2xl p-6 text-right transition duration-300 group-hover:bg-white border-r-4 border-brand-gold">
+                        <h4 class="text-lg font-bold text-brand-dark mb-2">時尚大轉型：去邊框化</h4>
+                        <p class="text-brand-dark/70">設計師山口裕子讓 Kitty 脫掉生硬黑邊，開始換上各種風格服裝，正式從卡通圖案轉型為「時尚教主」。</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-6 items-center group">
+                    <div class="flex-shrink-0 w-24 h-24 rounded-full bg-white border-4 border-brand-pink flex items-center justify-center font-display font-black text-2xl text-brand-pink group-hover:scale-110 transition duration-300 shadow-lg">Today</div>
+                    <div class="flex-grow glass-card rounded-2xl p-6 transition duration-300 group-hover:bg-white">
+                        <h4 class="text-lg font-bold text-brand-dark mb-2">聯名女王的無敵宇宙</h4>
+                        <p class="text-brand-dark/70">從平價文具到長榮航空彩繪機，實踐「萬物皆可聯名」。Kitty 不再只是商品，而是一種生活風格的標籤。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controversies Cards -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black text-brand-pink flex items-center mb-8">
+                <span class="bg-brand-pink text-white px-3 py-1 rounded-lg mr-4 text-base">04</span>
+                粉絲心碎現場？震撼爭議
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-3xl bg-white/40 border border-white hover:bg-white/80 transition shadow-sm">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-500 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h4 class="font-bold mb-2">她不是貓？</h4>
+                    <p class="text-xs leading-relaxed text-brand-dark/60">2014 年引發全球認知失調。官方重申她是兩腳走路的女孩，甚至養了一隻寵物貓 Charmmy Kitty。</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/40 border border-white hover:bg-white/80 transition shadow-sm">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-500 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <h4 class="font-bold mb-2">都市傳說</h4>
+                    <p class="text-xs leading-relaxed text-brand-dark/60">關於「無嘴」曾流傳靈異傳說。官方堅持「無嘴是為了傾聽」，成功將雜訊轉化為溫暖的品牌厚度。</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/40 border border-white hover:bg-white/80 transition shadow-sm">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-500 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    </div>
+                    <h4 class="font-bold mb-2">過度商業化</h4>
+                    <p class="text-xs leading-relaxed text-brand-dark/60">批評者認為過度授權導致品牌顯得廉價。這反映了親民性與品牌高度之間的動態平衡課題。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Section - Glass Panel -->
+        <section class="relative rounded-[3rem] overflow-hidden bg-brand-dark text-white p-8 md:p-16 mb-16 shadow-2xl">
+            <div class="absolute top-0 right-0 p-8 opacity-10">
+                <svg width="200" height="200" viewBox="0 0 200 200" fill="currentColor">
+                    <circle cx="100" cy="100" r="80" stroke="white" stroke-width="2" fill="none" />
+                    <rect x="70" y="70" width="60" height="60" fill="white" />
+                </svg>
+            </div>
+            
+            <h2 class="text-3xl font-display font-black mb-12 relative z-10 tracking-tight">
+                未來也要繼續可愛！<br/>
+                <span class="text-brand-pink text-xl">Kitty 的下一步計畫</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold flex items-center text-brand-pink">
+                        <span class="w-8 h-8 rounded-full bg-brand-pink/20 flex items-center justify-center text-xs mr-3">01</span>
+                        數位界新寵
+                    </h4>
+                    <p class="text-brand-lightPink/70 text-sm leading-relaxed">
+                        積極擁抱 Web3 與元宇宙，在 Roblox 打造虛擬互動世界並發行 NFT，試圖在數位原住民（Alpha 世代）心中紮根。
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold flex items-center text-brand-pink">
+                        <span class="w-8 h-8 rounded-full bg-brand-pink/20 flex items-center justify-center text-xs mr-3">02</span>
+                        前進好萊塢
+                    </h4>
+                    <p class="text-brand-lightPink/70 text-sm leading-relaxed">
+                        華納兄弟正籌備 Kitty 真人動畫電影。Kitty 將從「靜態符號」轉化為擁有完整故事線的敘事 IP。
+                    </p>
+                </div>
+                <div class="md:col-span-2 space-y-4 pt-6 border-t border-white/10">
+                    <h4 class="text-xl font-bold flex items-center text-brand-pink">
+                        <span class="w-8 h-8 rounded-full bg-brand-pink/20 flex items-center justify-center text-xs mr-3">03</span>
+                        SDGs 與精品殿堂
+                    </h4>
+                    <p class="text-brand-lightPink/70 text-sm leading-relaxed">
+                        擔任聯合國永續發展目標特使；同時與 Gucci、Balenciaga 聯名，證明了「可愛文化」也能具備極高的高級感。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Message -->
+        <section class="text-center space-y-8 animate-fade-in opacity-0" style="animation-delay: 1s;">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-4xl font-display font-black text-brand-dark mb-6 italic">為什麼我們永遠愛她？</h2>
+                <p class="text-lg text-brand-dark/70 leading-relaxed mb-10">
+                    在這 50 年的漫長歲月中，Hello Kitty 超越了一個裝飾圖案的使命，她成為了祖孫三代共同的情感記憶。
+                    <br/><br/>
+                    或許，我們之所以需要 Kitty，是因為在這個資訊爆炸、情緒過載的世界裡，我們渴望一種「不需要解釋」的認同。她那沒有表情的臉孔，就像一面溫柔的鏡子，映照出我們內心最安靜的部分。
+                </p>
+                <div class="inline-block px-8 py-4 bg-brand-pink text-white rounded-full font-bold text-lg hover:shadow-xl hover:bg-brand-accent transition-all transform hover:-translate-y-1 cursor-pointer">
+                    謝謝妳，50 年來的陪伴
+                </div>
+            </div>
+
+            <!-- Interaction Box -->
+            <div class="mt-20 p-8 md:p-12 glass-card rounded-[2.5rem] text-left">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center text-white">💬</div>
+                    <h3 class="text-xl font-bold">互動提問</h3>
+                </div>
+                <p class="text-brand-dark mb-6">你擁有的第一件 Hello Kitty 商品是什麼？是在公園門口買的零錢包，還是紀念版文具？快在下方跟我分享吧！</p>
+                <div class="relative">
+                    <textarea class="w-full rounded-2xl border-2 border-brand-pink/20 p-4 bg-white/50 focus:bg-white focus:border-brand-pink outline-none transition" placeholder="在這裡分享你的回憶..." rows="3"></textarea>
+                    <button class="absolute bottom-3 right-3 px-6 py-2 bg-brand-dark text-white rounded-xl font-bold hover:bg-black transition">送出</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('progress-bar');
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolledPercentage = (window.scrollY / scrollableHeight) * 100;
+            progressBar.style.width = scrolledPercentage + '%';
+        });
+
+        // Intersection Observer for Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    entry.target.style.opacity = "1";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
